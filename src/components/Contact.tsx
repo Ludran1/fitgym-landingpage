@@ -64,7 +64,7 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-white/90 font-medium">
-                  +51 999 888 777<br />
+                  960 930 024<br />
                   <span className="text-sm text-white/70">WhatsApp disponible</span>
                 </p>
               </CardContent>
