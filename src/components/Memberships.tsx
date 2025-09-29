@@ -7,7 +7,7 @@ const Memberships = () => {
   const memberships = [
     {
       name: "Membresía Básica",
-      price: "S/ 70",
+      price: "S/ 89",
       period: "mensual",
       description: "Perfect para comenzar tu transformación",
       features: [
