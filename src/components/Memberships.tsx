@@ -45,16 +45,16 @@ const Memberships = () => {
     <section id="membresias" className="py-20 bg-gradient-to-br from-background to-muted">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-black text-fitgym-dark mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-fitgym-dark mb-6">
             Elige Tu <span className="text-fitgym-orange">Membresía</span>
           </h2>
-          <p className="text-xl text-fitgym-gray max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-fitgym-gray max-w-2xl mx-auto px-4">
             Planes diseñados para adaptarse a tus objetivos y estilo de vida. 
             Comienza tu transformación hoy mismo.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {memberships.map((membership, index) => (
             <Card 
               key={index} 
@@ -77,15 +77,15 @@ const Memberships = () => {
                   {membership.icon}
                 </div>
                 
-                <CardTitle className="text-2xl font-black text-fitgym-dark">
+                <CardTitle className="text-xl sm:text-2xl font-black text-fitgym-dark">
                   {membership.name}
                 </CardTitle>
                 
                 <div className="mt-4">
-                  <span className="text-5xl font-black text-fitgym-orange">
+                  <span className="text-4xl sm:text-5xl font-black text-fitgym-orange">
                     {membership.price}
                   </span>
-                  <span className="text-fitgym-gray ml-2">/ {membership.period}</span>
+                  <span className="text-fitgym-gray ml-2 text-sm sm:text-base">/ {membership.period}</span>
                 </div>
                 
                 <p className="text-fitgym-gray mt-2">{membership.description}</p>
@@ -106,7 +106,7 @@ const Memberships = () => {
                 <div className="pt-6">
                   <Button 
                     variant={membership.popular ? "orange" : "outline-orange"}
-                    className="w-full text-lg py-3 h-auto font-bold"
+                    className="w-full text-base sm:text-lg py-3 h-auto font-bold"
                   >
                     {membership.popular ? "Elegir Premium" : "Elegir Básica"}
                   </Button>
