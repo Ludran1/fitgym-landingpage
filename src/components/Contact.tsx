@@ -100,7 +100,7 @@ const Contact = () => {
                 </p>
               </CardHeader>
               <CardContent className="space-y-4">
-                <Button variant="secondary" className="w-full text-base sm:text-lg py-3 h-auto font-bold bg-white text-fitgym-orange hover:bg-white/90">
+                <Button className="w-full text-base sm:text-lg py-3 h-auto font-bold bg-white text-fitgym-orange hover:bg-white/90 transition-smooth">
                   Reservar Cita
                 </Button>
                 <Button variant="outline" className="w-full text-base sm:text-lg py-3 h-auto font-bold border-white text-white hover:bg-white hover:text-fitgym-orange">
