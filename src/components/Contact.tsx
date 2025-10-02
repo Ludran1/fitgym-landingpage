@@ -103,9 +103,11 @@ const Contact = () => {
                 <Button className="w-full text-base sm:text-lg py-3 h-auto font-bold bg-white text-fitgym-orange hover:bg-white/90 transition-smooth">
                   Reservar Cita
                 </Button>
-                <Button className="w-full text-base sm:text-lg py-3 h-auto font-bold border-2 border-white bg-transparent text-white hover:bg-white hover:text-fitgym-orange transition-smooth">
-                  <MessageCircle className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-                  WhatsApp
+                <Button asChild className="w-full text-base sm:text-lg py-3 h-auto font-bold border-2 border-white bg-transparent text-white hover:bg-white hover:text-fitgym-orange transition-smooth">
+                  <a href="https://wa.me/51960930024" target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
+                    WhatsApp
+                  </a>
                 </Button>
               </CardContent>
             </Card>
