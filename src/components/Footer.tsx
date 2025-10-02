@@ -42,7 +42,7 @@ const Footer = () => {
             <h4 className="text-base sm:text-lg font-bold text-white mb-4">Contacto</h4>
             <div className="space-y-2 text-white/70 text-sm sm:text-base">
               <p>Coop Villa Periodista Mz G Lt 1</p>
-              <p>+51 999 888 777</p>
+              <p>+51 960 930 024</p>
               <p>info@fitgym.pe</p>
               <p className="text-fitgym-orange font-medium text-xs sm:text-sm">Lun-Sáb: 8AM-10PM | Dom: 8AM-12PM</p>
             </div>
