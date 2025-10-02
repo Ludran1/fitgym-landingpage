@@ -33,7 +33,7 @@ const Memberships = () => {
         "Asesoría nutricional mensual",
         "Plan de entrenamiento personalizado",
         "Acceso a zona VIP",
-        "Toallas limpias incluidas",
+        "4 invitaciones mensuales",
         "Bebidas deportivas con descuento"
       ],
       popular: true,
