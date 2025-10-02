@@ -31,7 +31,6 @@ const Memberships = () => {
         "Entrenamiento funcional",
         "Asesoría nutricional mensual",
         "Plan de entrenamiento personalizado",
-        "Acceso a zona VIP",
         "4 invitaciones mensuales",
         "4 bebidas deportivas mensuales"
       ],
