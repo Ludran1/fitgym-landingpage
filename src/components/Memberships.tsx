@@ -15,8 +15,7 @@ const Memberships = () => {
         "Uso de máquinas cardiovasculares",
         "Acceso de lunes a domingo",
         "Asesoría inicial gratuita",
-        "Casillero incluido",
-        "Estacionamiento gratuito"
+        "Casillero incluido"
       ],
       popular: false,
       icon: <Star className="w-6 h-6" />
