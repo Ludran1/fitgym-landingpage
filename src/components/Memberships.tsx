@@ -33,7 +33,7 @@ const Memberships = () => {
         "Plan de entrenamiento personalizado",
         "Acceso a zona VIP",
         "4 invitaciones mensuales",
-        "Bebidas deportivas con descuento"
+        "4 bebidas deportivas mensuales"
       ],
       popular: true,
       icon: <Crown className="w-6 h-6" />
