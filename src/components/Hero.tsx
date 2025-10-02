@@ -28,9 +28,11 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Button variant="hero" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-4 h-auto">
-              Comienza Tu Transformación
-              <ArrowRight className="ml-2" size={18} />
+            <Button asChild variant="hero" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-4 h-auto">
+              <a href="#membresias">
+                Comienza Tu Transformación
+                <ArrowRight className="ml-2" size={18} />
+              </a>
             </Button>
             
             <Button variant="outline-orange" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-4 h-auto bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-fitgym-dark">
