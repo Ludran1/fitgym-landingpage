@@ -103,10 +103,20 @@ const Memberships = () => {
 
                 <div className="pt-6">
                   <Button 
+                    asChild
                     variant={membership.popular ? "orange" : "outline-orange"}
                     className="w-full text-base sm:text-lg py-3 h-auto font-bold"
                   >
-                    {membership.popular ? "Elegir Premium" : "Elegir Básica"}
+                    <a 
+                      href={membership.popular 
+                        ? "https://wa.me/51960930024?text=¡Hola,%20FitGym!%20Quiero%20la%20membresía%20Premium%20para%20aprovechar%20todos%20los%20beneficios:%20%F0%9F%8F%8B%EF%B8%8F%E2%80%8D%E2%99%82%EF%B8%8F%0A%E2%80%A2%20Acceso%20completo%20a%20pesas%20y%20cardio%0A%E2%80%A2%20Clases%20grupales%0A%E2%80%A2%20Entrenamiento%20funcional%0A%E2%80%A2%20Asesoría%20nutricional%20mensual%0A%E2%80%A2%20Plan%20personalizado%0A%E2%80%A2%204%20invitaciones%20mensuales%0A%E2%80%A2%204%20bebidas%20deportivas%0A%0A¿Cómo%20puedo%20inscribirme?%20¿Aceptan%20efectivo%20o%20Yape?%20¡Gracias!%20%F0%9F%92%AA"
+                        : "https://wa.me/51960930024?text=¡Hola,%20FitGym!%20Estoy%20listo(a)%20para%20arrancar%20mi%20cambio%20y%20quiero%20hacerlo%20con%20la%20membresía%20básica.%20¿Me%20pueden%20guiar%20con%20los%20siguientes%20beneficios?%F0%9F%A7%98%E2%80%8D%E2%99%80%EF%B8%8F%0A%E2%80%A2%20Acceso%20a%20pesas%20libres%0A%E2%80%A2%20Máquinas%20cardiovasculares%0A%E2%80%A2%20Acceso%20de%20lunes%20a%20domingo%0A%E2%80%A2%20Asesoría%20inicial%20gratis%0A%E2%80%A2%20Casillero%20incluido%0A%0AMe%20gustaría%20saber%20cómo%20puedo%20inscribirme%20y%20si%20puedo%20pagar%20con%20efectivo%20o%20Yape.%20¡Gracias!%20%F0%9F%92%AA"
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {membership.popular ? "Elegir Premium" : "Elegir Básica"}
+                    </a>
                   </Button>
                 </div>
               </CardContent>
