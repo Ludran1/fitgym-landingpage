@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, MessageCircle, Music } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -126,7 +126,7 @@ const Contact = () => {
                     <Instagram className="w-6 h-6 text-white" />
                   </button>
                   <button className="w-12 h-12 bg-fitgym-orange rounded-full flex items-center justify-center hover:bg-fitgym-orange-light transition-smooth">
-                    <MessageCircle className="w-6 h-6 text-white" />
+                    <Music className="w-6 h-6 text-white" />
                   </button>
                 </div>
                 <p className="text-center text-white/70 mt-4 text-sm">
