@@ -192,7 +192,11 @@ const Memberships = () => {
 
         <div className="text-center mt-12">
           <p className="text-fitgym-gray mb-4">¿Tienes dudas sobre qué membresía elegir?</p>
-          <Button variant="outline-orange" size="lg">Habla con un Asesor</Button>
+          <Button asChild variant="outline-orange" size="lg">
+            <a href="https://wa.me/51960930024?text=%C2%A1Hola%20FitGym!%20Quisiera%20hablar%20con%20un%20asesor%20sobre%20las%20membres%C3%ADas%20y%20cu%C3%A1l%20me%20recomiendan%20para%20mi%20objetivo." target="_blank" rel="noopener noreferrer">
+              Habla con un Asesor
+            </a>
+          </Button>
         </div>
       </div>
     </section>
