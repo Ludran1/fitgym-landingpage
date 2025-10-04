@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import MembershipForm from "./MembershipForm";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
     <header className="bg-white/95 backdrop-blur-sm fixed w-full top-0 z-50 shadow-card">
@@ -34,7 +36,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="orange" size="lg">
+            <Button variant="orange" size="lg" onClick={() => setIsFormOpen(true)}>
               Únete Ahora
             </Button>
           </div>
@@ -80,13 +82,15 @@ const Header = () => {
               >
                 Contacto
               </a>
-              <Button variant="orange" className="mt-4">
+              <Button variant="orange" className="mt-4" onClick={() => setIsFormOpen(true)}>
                 Únete Ahora
               </Button>
             </nav>
           </div>
         )}
       </div>
+      
+      <MembershipForm open={isFormOpen} onOpenChange={setIsFormOpen} />
     </header>
   );
 };
