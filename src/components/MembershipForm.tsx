@@ -200,9 +200,6 @@ Quiero unirme al gimnasio. Aquí están mis datos:
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="Efectivo">
-                        Efectivo
-                      </SelectItem>
                       <SelectItem value="Yape">
                         Yape
                       </SelectItem>
