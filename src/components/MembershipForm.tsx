@@ -43,6 +43,9 @@ const formSchema = z.object({
   membresia: z.string().min(1, {
     message: "Debes seleccionar una membresía",
   }),
+  metodoPago: z.string().min(1, {
+    message: "Debes seleccionar un método de pago",
+  }),
 });
 
 interface MembershipFormProps {
@@ -60,6 +63,7 @@ const MembershipForm = ({ open, onOpenChange }: MembershipFormProps) => {
       dni: "",
       numero: "",
       membresia: "",
+      metodoPago: "",
     },
   });
 
@@ -74,6 +78,7 @@ Quiero unirme al gimnasio. Aquí están mis datos:
 📄 DNI: ${values.dni}
 📱 Número: ${values.numero}
 💳 Membresía: ${values.membresia}
+💰 Método de Pago: ${values.metodoPago}
 
 ¿Cómo puedo completar mi inscripción? ¡Gracias! 💪`;
 
@@ -182,7 +187,42 @@ Quiero unirme al gimnasio. Aquí están mis datos:
               )}
             />
 
-            <Button 
+            <FormField
+              control={form.control}
+              name="metodoPago"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Método de Pago</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Selecciona método de pago" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="Efectivo">
+                        Efectivo
+                      </SelectItem>
+                      <SelectItem value="Yape">
+                        Yape
+                      </SelectItem>
+                      <SelectItem value="Transferencia Bancaria">
+                        Transferencia Bancaria
+                      </SelectItem>
+                      <SelectItem value="Plin">
+                        Plin
+                      </SelectItem>
+                      <SelectItem value="Tarjeta de Crédito/Débito">
+                        Tarjeta de Crédito/Débito
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <Button
               type="submit" 
               className="w-full" 
               variant="orange"
