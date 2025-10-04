@@ -95,9 +95,6 @@ const Contact = () => {
                 <CardTitle className="text-xl sm:text-2xl font-black">
                   ¡Únete Ahora!
                 </CardTitle>
-                <p className="text-white/90 text-sm sm:text-base">
-                  Primera semana GRATIS para nuevos miembros
-                </p>
               </CardHeader>
               <CardContent className="space-y-4">
                 <Button className="w-full text-base sm:text-lg py-3 h-auto font-bold bg-white text-fitgym-orange hover:bg-white/90 transition-smooth">
