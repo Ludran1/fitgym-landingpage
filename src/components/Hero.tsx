@@ -35,9 +35,11 @@ const Hero = () => {
               </a>
             </Button>
             
-            <Button variant="outline-orange" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-4 h-auto bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-fitgym-dark">
-              <Play className="mr-2" size={18} />
-              Ver Instalaciones
+            <Button asChild variant="outline-orange" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-4 h-auto bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-fitgym-dark">
+              <a href="https://www.tiktok.com/@fitgymsedeate" target="_blank" rel="noopener noreferrer">
+                <Play className="mr-2" size={18} />
+                Ver Instalaciones
+              </a>
             </Button>
           </div>
 
