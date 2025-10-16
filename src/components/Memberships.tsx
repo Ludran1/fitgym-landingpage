@@ -124,7 +124,6 @@ const Memberships = () => {
       description: "La experiencia completa de entrenamiento",
       features: [
         "Todo lo incluido en Básica",
-        "Acceso a clases grupales",
         "Entrenamiento funcional",
         "Plan de entrenamiento personalizado",
         "4 invitaciones mensuales",
@@ -156,7 +155,6 @@ const Memberships = () => {
       description: "La experiencia completa en plan trimestral",
       features: [
         "Todo lo incluido en Básica",
-        "Acceso a clases grupales",
         "Entrenamiento funcional",
         "Plan de entrenamiento personalizado",
         "4 invitaciones mensuales",
