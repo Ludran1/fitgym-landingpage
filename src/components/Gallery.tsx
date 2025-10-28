@@ -1,4 +1,11 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogClose,
+} from "@/components/ui/dialog";
+import { X } from "lucide-react";
 import gymEquipmentReal from "@/assets/gym-equipment-real.jpg";
 import gymCardioReal from "@/assets/gym-cardio-real.jpg";
 import gymWeightsReal from "@/assets/gym-weights-real.jpg";
@@ -7,6 +14,7 @@ import gymArea from "@/assets/gym-area.jpg";
 import gymTraining from "@/assets/gym-training.jpg";
 
 const Gallery = () => {
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
   const images = [
     {
       src: gymEquipmentReal,
@@ -54,7 +62,8 @@ const Gallery = () => {
           {images.map((image, index) => (
             <Card
               key={index}
-              className="overflow-hidden group hover:shadow-lg transition-all duration-300"
+              className="overflow-hidden group hover:shadow-lg transition-all duration-300 cursor-pointer"
+              onClick={() => setSelectedImage({ src: image.src, alt: image.alt })}
             >
               <div className="relative overflow-hidden aspect-video">
                 <img
@@ -67,6 +76,22 @@ const Gallery = () => {
           ))}
         </div>
       </div>
+
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-7xl w-full p-0 overflow-hidden bg-black/95">
+          <DialogClose className="absolute right-4 top-4 z-10 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+            <X className="h-6 w-6 text-white" />
+            <span className="sr-only">Cerrar</span>
+          </DialogClose>
+          {selectedImage && (
+            <img
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              className="w-full h-auto max-h-[90vh] object-contain"
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
