@@ -78,8 +78,11 @@ const Gallery = () => {
       </div>
 
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-7xl w-full p-0 overflow-hidden bg-black/95">
-          <DialogClose className="absolute right-4 top-4 z-10 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+        <DialogContent 
+          className="max-w-7xl w-full p-0 overflow-hidden bg-black/95 border-0"
+          onClick={() => setSelectedImage(null)}
+        >
+          <DialogClose className="absolute right-4 top-4 z-10 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none">
             <X className="h-6 w-6 text-white" />
             <span className="sr-only">Cerrar</span>
           </DialogClose>
@@ -87,7 +90,7 @@ const Gallery = () => {
             <img
               src={selectedImage.src}
               alt={selectedImage.alt}
-              className="w-full h-auto max-h-[90vh] object-contain"
+              className="w-full h-auto max-h-[90vh] object-contain cursor-pointer"
             />
           )}
         </DialogContent>
