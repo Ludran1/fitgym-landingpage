@@ -1,42 +1,42 @@
 import { Card } from "@/components/ui/card";
-import gymHero from "@/assets/gym-hero.jpg";
-import gymEquipment from "@/assets/gym-equipment.jpg";
-import gymWeights from "@/assets/gym-weights.jpg";
-import gymCardio from "@/assets/gym-cardio.jpg";
-import gymClass from "@/assets/gym-class.jpg";
-import gymFacilities from "@/assets/gym-facilities.jpg";
+import gymEquipmentReal from "@/assets/gym-equipment-real.jpg";
+import gymCardioReal from "@/assets/gym-cardio-real.jpg";
+import gymWeightsReal from "@/assets/gym-weights-real.jpg";
+import gymMachine from "@/assets/gym-machine.jpg";
+import gymArea from "@/assets/gym-area.jpg";
+import gymTraining from "@/assets/gym-training.jpg";
 
 const Gallery = () => {
   const images = [
     {
-      src: gymHero,
-      alt: "Instalaciones principales del gimnasio",
-      title: "Área Principal"
-    },
-    {
-      src: gymEquipment,
-      alt: "Equipamiento moderno de entrenamiento",
+      src: gymEquipmentReal,
+      alt: "Equipamiento moderno de entrenamiento y máquinas multifunción",
       title: "Equipamiento"
     },
     {
-      src: gymWeights,
-      alt: "Zona de pesas y entrenamiento de fuerza",
-      title: "Zona de Pesas"
-    },
-    {
-      src: gymCardio,
-      alt: "Área de cardio con equipamiento moderno",
+      src: gymCardioReal,
+      alt: "Área de cardio con cintas de correr y bicicletas estáticas",
       title: "Área de Cardio"
     },
     {
-      src: gymClass,
-      alt: "Clases grupales en nuestro estudio",
-      title: "Clases Grupales"
+      src: gymWeightsReal,
+      alt: "Zona de pesas libres con mancuernas de diversos pesos",
+      title: "Zona de Pesas"
     },
     {
-      src: gymFacilities,
-      alt: "Instalaciones y vestidores del gimnasio",
-      title: "Instalaciones"
+      src: gymMachine,
+      alt: "Máquinas de entrenamiento de fuerza y prensa",
+      title: "Máquinas de Fuerza"
+    },
+    {
+      src: gymArea,
+      alt: "Área de entrenamiento funcional con espacio amplio",
+      title: "Área Funcional"
+    },
+    {
+      src: gymTraining,
+      alt: "Zona de entrenamiento con equipamiento completo",
+      title: "Zona de Entrenamiento"
     }
   ];
 
