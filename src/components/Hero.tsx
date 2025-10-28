@@ -1,17 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/gym-hero.jpg";
-
 const Hero = () => {
-  return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img 
-          src={heroImage} 
-          alt="Moderno gimnasio FitGym con equipos de entrenamiento de alta calidad"
-          className="w-full h-full object-cover"
-        />
+        <img src={heroImage} alt="Moderno gimnasio FitGym con equipos de entrenamiento de alta calidad" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-fitgym-dark/80 via-fitgym-dark/50 to-transparent"></div>
       </div>
 
@@ -55,7 +49,7 @@ const Hero = () => {
             </div>
             <div className="text-center lg:text-left">
               <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-fitgym-orange">24/7</div>
-              <div className="text-white/80 font-medium text-sm sm:text-base">Equipos Premium</div>
+              <div className="text-white/80 font-medium text-sm sm:text-base">Equipos excelentes</div>
             </div>
           </div>
         </div>
@@ -67,8 +61,6 @@ const Hero = () => {
           <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
