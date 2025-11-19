@@ -127,7 +127,6 @@ const Memberships = () => {
         "Entrenamiento funcional",
         "Plan de entrenamiento personalizado",
         "4 invitaciones mensuales",
-        "4 bebidas deportivas mensuales",
       ],
       popular: true,
       icon: <Crown className="w-6 h-6" />,
