@@ -104,7 +104,7 @@ const Memberships = () => {
   const memberships: Membership[] = [
     {
       name: "Membresía Básica",
-      price: "S/ 69",
+      price: "S/ 60",
       period: "mensual",
       description: "Perfect para comenzar tu transformación",
       features: [
