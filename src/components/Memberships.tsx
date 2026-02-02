@@ -109,6 +109,21 @@ const PricingCard = ({ membership }: { membership: Membership }) => {
 const Memberships = () => {
   const memberships: Membership[] = [
     {
+      name: "Máquinas + Baile",
+      price: "S/ 110",
+      period: "mensual",
+      description: "Combina fitness y diversión",
+      features: [
+        "Acceso completo a máquinas",
+        "Clases grupales de baile",
+        "Lunes, Miércoles y Viernes 7:30 PM",
+        "Acceso de lunes a domingo",
+        "Casillero incluido",
+      ],
+      popular: true,
+      icon: <Music className="w-6 h-6" />,
+    },
+    {
       name: "Membresía Básica",
       price: "S/ 60",
       period: "mensual",
@@ -136,21 +151,6 @@ const Memberships = () => {
       ],
       popular: false,
       icon: <Crown className="w-6 h-6" />,
-    },
-    {
-      name: "Máquinas + Baile",
-      price: "S/ 110",
-      period: "mensual",
-      description: "Combina fitness y diversión",
-      features: [
-        "Acceso completo a máquinas",
-        "Clases grupales de baile",
-        "Lunes, Miércoles y Viernes 7:30 PM",
-        "Acceso de lunes a domingo",
-        "Casillero incluido",
-      ],
-      popular: true,
-      icon: <Music className="w-6 h-6" />,
     },
     // Nuevas membresías trimestrales
     {
