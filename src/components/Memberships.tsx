@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, Star, Crown } from "lucide-react";
+import { Check, Star, Crown, Music } from "lucide-react";
 import membershipImage from "@/assets/membership-card.jpg";
 
 // Modelo reutilizable de Pricing Card
@@ -18,34 +18,40 @@ type Membership = {
 // Componente de Pricing Card
 const PricingCard = ({ membership }: { membership: Membership }) => {
   const isPremium = membership.name.toLowerCase().includes("premium");
+  const isBaile = membership.name.toLowerCase().includes("baile");
 
   // Mensajes de WhatsApp
   const monthlyBasicHref =
     "https://wa.me/51960930024?text=%C2%A1Hola,%20FitGym!%20Estoy%20listo(a)%20para%20arrancar%20mi%20cambio%20y%20quiero%20hacerlo%20con%20la%20membres%C3%ADa%20b%C3%A1sica.%20%C2%BFMe%20pueden%20guiar%20con%20los%20siguientes%20beneficios?%F0%9F%A7%98%E2%80%8D%E2%99%80%EF%B8%8F%0A%E2%80%A2%20Acceso%20a%20pesas%20libres%0A%E2%80%A2%20M%C3%A1quinas%20cardiovasculares%0A%E2%80%A2%20Acceso%20de%20lunes%20a%20domingo%0A%E2%80%A2%20Asesor%C3%ADa%20inicial%20gratis%0A%E2%80%A2%20Casillero%20incluido%0A%0AMe%20gustar%C3%ADa%20saber%20c%C3%B3mo%20puedo%20inscribirme%20y%20si%20puedo%20pagar%20con%20efectivo%20o%20Yape.%20%C2%A1Gracias!%20%F0%9F%92%AA";
   const monthlyPremiumHref =
     "https://wa.me/51960930024?text=%C2%A1Hola,%20FitGym!%20Quiero%20la%20membres%C3%ADa%20Premium%20para%20aprovechar%20todos%20los%20beneficios:%20%F0%9F%8F%8B%EF%B8%8F%E2%80%8D%E2%99%82%EF%B8%8F%0A%E2%80%A2%20Acceso%20completo%20a%20pesas%20y%20cardio%0A%E2%80%A2%20Clases%20grupales%0A%E2%80%A2%20Entrenamiento%20funcional%0A%E2%80%A2%20Asesor%C3%ADa%20nutricional%20mensual%0A%E2%80%A2%20Plan%20personalizado%0A%E2%80%A2%204%20invitaciones%20mensuales%0A%E2%80%A2%204%20bebidas%20deportivas%0A%0A%C2%BFC%C3%B3mo%20puedo%20inscribirme?%20%C2%BFAceptan%20efectivo%20o%20Yape?%20%C2%A1Gracias!%20%F0%9F%92%AA";
+  const monthlyBaileHref =
+    "https://wa.me/51960930024?text=%C2%A1Hola,%20FitGym!%20Me%20interesa%20la%20membres%C3%ADa%20M%C3%A1quinas%20%2B%20Baile%20(S/%20110).%20Quiero%20combinar%20entrenamiento%20con%20clases%20de%20baile%20los%20lunes,%20mi%C3%A9rcoles%20y%20viernes%20a%20las%207:30%20PM.%20%C2%BFC%C3%B3mo%20puedo%20inscribirme?%20Gracias%20%F0%9F%92%83";
   const quarterlyBasicHref =
     "https://wa.me/51960930024?text=%C2%A1Hola,%20FitGym!%20Me%20interesa%20la%20Membres%C3%ADa%20Trimestral%20B%C3%A1sica%20(S/%20170).%20%C2%BFPueden%20darme%20m%C3%A1s%20informaci%C3%B3n%20y%20ayudarme%20con%20la%20inscripci%C3%B3n?%20Gracias";
   const quarterlyPremiumHref =
     "https://wa.me/51960930024?text=%C2%A1Hola,%20FitGym!%20Estoy%20interesado(a)%20en%20la%20Membres%C3%ADa%20Trimestral%20Premium%20(S/%20220).%20%C2%BFPueden%20compartirme%20los%20detalles%20y%20el%20proceso%20de%20inscripci%C3%B3n?%20Gracias";
 
-  const ctaHref =
-    membership.period === "trimestral"
-      ? isPremium
-        ? quarterlyPremiumHref
-        : quarterlyBasicHref
-      : membership.popular
-      ? monthlyPremiumHref
-      : monthlyBasicHref;
+  const getCtaHref = () => {
+    if (membership.period === "trimestral") {
+      return isPremium ? quarterlyPremiumHref : quarterlyBasicHref;
+    }
+    if (isBaile) return monthlyBaileHref;
+    if (isPremium) return monthlyPremiumHref;
+    return monthlyBasicHref;
+  };
 
-  const ctaLabel =
-    membership.period === "trimestral"
-      ? isPremium
-        ? "Elegir Trimestral Premium"
-        : "Elegir Trimestral Básica"
-      : membership.popular
-      ? "Elegir Premium"
-      : "Elegir Básica";
+  const getCtaLabel = () => {
+    if (membership.period === "trimestral") {
+      return isPremium ? "Elegir Trimestral Premium" : "Elegir Trimestral Básica";
+    }
+    if (isBaile) return "Elegir Máquinas + Baile";
+    if (isPremium) return "Elegir Premium";
+    return "Elegir Básica";
+  };
+
+  const ctaHref = getCtaHref();
+  const ctaLabel = getCtaLabel();
 
   return (
     <Card
@@ -128,8 +134,23 @@ const Memberships = () => {
         "Plan de entrenamiento personalizado",
         "4 invitaciones mensuales",
       ],
-      popular: true,
+      popular: false,
       icon: <Crown className="w-6 h-6" />,
+    },
+    {
+      name: "Máquinas + Baile",
+      price: "S/ 110",
+      period: "mensual",
+      description: "Combina fitness y diversión",
+      features: [
+        "Acceso completo a máquinas",
+        "Clases grupales de baile",
+        "Lunes, Miércoles y Viernes 7:30 PM",
+        "Acceso de lunes a domingo",
+        "Casillero incluido",
+      ],
+      popular: true,
+      icon: <Music className="w-6 h-6" />,
     },
     // Nuevas membresías trimestrales
     {
