@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Clock, Calendar, MapPin } from "lucide-react";
+import { Clock, Calendar, MapPin, Users } from "lucide-react";
 import equipmentImage from "@/assets/gym-equipment.jpg";
 
 const Schedule = () => {
@@ -13,6 +13,14 @@ const Schedule = () => {
       days: "Domingo",
       hours: "8:00 AM - 12:00 PM",
       description: "Horario especial de fin de semana"
+    }
+  ];
+
+  const classesData = [
+    {
+      days: "Lunes, Miércoles y Viernes",
+      hours: "7:30 PM",
+      description: "Clases grupales de baile y entrenamiento funcional"
     }
   ];
 
@@ -47,6 +55,31 @@ const Schedule = () => {
                     <span className="text-xl sm:text-2xl font-bold text-fitgym-dark">{schedule.hours}</span>
                   </div>
                   <p className="text-fitgym-gray">{schedule.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+
+            {/* Group Classes */}
+            {classesData.map((classItem, index) => (
+              <Card key={`class-${index}`} className="border-2 border-fitgym-orange/50 bg-fitgym-orange/5 hover:border-fitgym-orange transition-smooth hover:shadow-card">
+                <CardHeader className="pb-4">
+                  <CardTitle className="flex items-center space-x-3 text-fitgym-dark">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-fitgym-orange rounded-full flex items-center justify-center">
+                      <Users className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                    </div>
+                    <span className="text-lg sm:text-xl font-black">Clases Grupales</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center space-x-3 mb-2">
+                    <Calendar className="w-5 h-5 text-fitgym-orange" />
+                    <span className="text-lg font-bold text-fitgym-dark">{classItem.days}</span>
+                  </div>
+                  <div className="flex items-center space-x-3 mb-3">
+                    <Clock className="w-5 h-5 text-fitgym-orange" />
+                    <span className="text-xl sm:text-2xl font-bold text-fitgym-dark">{classItem.hours}</span>
+                  </div>
+                  <p className="text-fitgym-gray">{classItem.description}</p>
                 </CardContent>
               </Card>
             ))}
