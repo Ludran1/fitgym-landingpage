@@ -125,7 +125,7 @@ const Memberships = () => {
     },
     {
       name: "Membresía Básica",
-      price: "S/ 60",
+      price: "S/ 70",
       period: "mensual",
       description: "Perfect para comenzar tu transformación",
       features: [
