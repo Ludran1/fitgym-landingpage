@@ -110,7 +110,7 @@ const Memberships = () => {
   const memberships: Membership[] = [
     {
       name: "Máquinas + Baile",
-      price: "S/ 110",
+      price: "S/ 120",
       period: "mensual",
       description: "Combina fitness y diversión",
       features: [
