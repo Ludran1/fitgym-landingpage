@@ -140,7 +140,7 @@ const Memberships = () => {
     },
     {
       name: "Membresía Premium",
-      price: "S/ 89",
+      price: "S/ 90",
       period: "mensual",
       description: "La experiencia completa de entrenamiento",
       features: [
