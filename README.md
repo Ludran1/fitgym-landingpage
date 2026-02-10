@@ -1,73 +1,78 @@
-# Welcome to your Lovable project
+# FitGym Ate - Landing Page 🏋️‍♂️💃
 
-## Project info
+Repositorio oficial para la landing page de **FitGym**, el gimnasio más moderno de Ate Vitarte. Este proyecto está diseñado para maximizar la conversión local, atraer nuevos miembros y promover las clases grupales y de pesas.
 
-**URL**: https://lovable.dev/projects/0290754f-4846-4ba3-8341-d79c6f2baa64
+## 🚀 Características Principales
 
-## How can I edit this code?
+- **Hero Section Localizada**: Mensajes dirigidos específicamente al público de Ate/Vitarte, con un CTA claro a WhatsApp.
+- **Estrategia de Precios**:
+  - **SOLO BAILE**: Para amantes del cardio y ritmo.
+  - **SOLO GYM**: Para enfoque en musculación.
+  - **PACK COMBO (⭐ Más Vendido)**: La mejor oferta combinada con efecto de anclaje de precio.
+- **Promo Mancha (Descuentos Grupales)**:
+  - Dúo (2 personas): **8% OFF**
+  - Trío (3 personas): **12% OFF**
+  - Mancha (4+ personas): **16% OFF**
+- **Botón Flotante de WhatsApp**: Sticky CTA para contacto directo y rápido en cualquier momento.
+- **SEO Optimizado**: Metadatos configurados para búsquedas locales ("Gimnasio Ate", "Baile Vitarte").
+- **Diseño Responsive**: Totalmente adaptado a dispositivos móviles.
 
-There are several ways of editing your application.
+## 🛠️ Tecnologías Utilizadas
 
-**Use Lovable**
+Este proyecto utiliza un stack moderno y eficiente:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0290754f-4846-4ba3-8341-d79c6f2baa64) and start prompting.
+- [Vite](https://vitejs.dev/) - Build tool y servidor de desarrollo ultrarrápido.
+- [React](https://reactjs.org/) - Biblioteca para interfaces de usuario.
+- [TypeScript](https://www.typescriptlang.org/) - JavaScript con tipado estático.
+- [Tailwind CSS](https://tailwindcss.com/) - Framework de utilidades CSS.
+- [shadcn/ui](https://ui.shadcn.com/) - Componentes de UI reutilizables y accesibles.
+- [Lucide React](https://lucide.dev/) - Iconos hermosos y consistentes.
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📦 Instalación y Uso Local
 
-**Use your preferred IDE**
+Sigue estos pasos para correr el proyecto en tu máquina local:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. **Clonar el repositorio**:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+   ```bash
+   git clone <TU_URL_DEL_REPO>
+   cd fitgym-landing-2025
+   ```
 
-Follow these steps:
+2. **Instalar dependencias**:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+   ```bash
+   npm install
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Iniciar servidor de desarrollo**:
+   ```bash
+   npm run dev
+   ```
+   El sitio estará disponible en `http://localhost:8080` (o el puerto que indique la consola).
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 📂 Estructura del Proyecto
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── assets/          # Imágenes y recursos estáticos
+├── components/      # Componentes reutilizables
+│   ├── ui/          # Componentes base (shadcn)
+│   ├── Hero.tsx     # Sección principal
+│   ├── Memberships.tsx # Tarjetas de precios
+│   ├── PromoGroup.tsx  # Sección de descuentos grupales
+│   └── WhatsAppButton.tsx # Botón flotante
+├── pages/           # Páginas de la aplicación (Index)
+└── main.tsx         # Punto de entrada
 ```
 
-**Edit a file directly in GitHub**
+## 📞 Contacto
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+**FitGym Ate**
 
-**Use GitHub Codespaces**
+- Ubicación: [Ate Vitarte, Lima]
+- WhatsApp: [+51 960 930 024](https://wa.me/51960930024)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/0290754f-4846-4ba3-8341-d79c6f2baa64) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+_Desarrollado para FitGym - Transformando tu fuerza interior._

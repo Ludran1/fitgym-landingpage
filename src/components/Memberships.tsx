@@ -1,103 +1,91 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, Star, Crown, Music } from "lucide-react";
-import membershipImage from "@/assets/membership-card.jpg";
+import { Check, Star, Crown, Music, Dumbbell } from "lucide-react";
 
-// Modelo reutilizable de Pricing Card
-// Tipado del plan
 type Membership = {
   name: string;
   price: string;
-  period: string; // "mensual" | "trimestral"
+  originalPrice: string;
+  period: string;
   description: string;
   features: string[];
   popular: boolean;
   icon: JSX.Element;
+  whatsappMessage: string;
 };
 
-// Componente de Pricing Card
 const PricingCard = ({ membership }: { membership: Membership }) => {
-  const isPremium = membership.name.toLowerCase().includes("premium");
-  const isBaile = membership.name.toLowerCase().includes("baile");
-
-  // Mensajes de WhatsApp
-  const monthlyBasicHref =
-    "https://wa.me/51960930024?text=%C2%A1Hola,%20FitGym!%20Estoy%20listo(a)%20para%20arrancar%20mi%20cambio%20y%20quiero%20hacerlo%20con%20la%20membres%C3%ADa%20b%C3%A1sica.%20%C2%BFMe%20pueden%20guiar%20con%20los%20siguientes%20beneficios?%F0%9F%A7%98%E2%80%8D%E2%99%80%EF%B8%8F%0A%E2%80%A2%20Acceso%20a%20pesas%20libres%0A%E2%80%A2%20M%C3%A1quinas%20cardiovasculares%0A%E2%80%A2%20Acceso%20de%20lunes%20a%20domingo%0A%E2%80%A2%20Asesor%C3%ADa%20inicial%20gratis%0A%E2%80%A2%20Casillero%20incluido%0A%0AMe%20gustar%C3%ADa%20saber%20c%C3%B3mo%20puedo%20inscribirme%20y%20si%20puedo%20pagar%20con%20efectivo%20o%20Yape.%20%C2%A1Gracias!%20%F0%9F%92%AA";
-  const monthlyPremiumHref =
-    "https://wa.me/51960930024?text=%C2%A1Hola,%20FitGym!%20Quiero%20la%20membres%C3%ADa%20Premium%20para%20aprovechar%20todos%20los%20beneficios:%20%F0%9F%8F%8B%EF%B8%8F%E2%80%8D%E2%99%82%EF%B8%8F%0A%E2%80%A2%20Acceso%20completo%20a%20pesas%20y%20cardio%0A%E2%80%A2%20Clases%20grupales%0A%E2%80%A2%20Entrenamiento%20funcional%0A%E2%80%A2%20Asesor%C3%ADa%20nutricional%20mensual%0A%E2%80%A2%20Plan%20personalizado%0A%E2%80%A2%204%20invitaciones%20mensuales%0A%E2%80%A2%204%20bebidas%20deportivas%0A%0A%C2%BFC%C3%B3mo%20puedo%20inscribirme?%20%C2%BFAceptan%20efectivo%20o%20Yape?%20%C2%A1Gracias!%20%F0%9F%92%AA";
-  const monthlyBaileHref =
-    "https://wa.me/51960930024?text=%C2%A1Hola,%20FitGym!%20Me%20interesa%20la%20membres%C3%ADa%20M%C3%A1quinas%20%2B%20Baile%20(S/%20110).%20Quiero%20combinar%20entrenamiento%20con%20clases%20de%20baile%20los%20lunes,%20mi%C3%A9rcoles%20y%20viernes%20a%20las%207:30%20PM.%20%C2%BFC%C3%B3mo%20puedo%20inscribirme?%20Gracias%20%F0%9F%92%83";
-  const quarterlyBasicHref =
-    "https://wa.me/51960930024?text=%C2%A1Hola,%20FitGym!%20Me%20interesa%20la%20Membres%C3%ADa%20Trimestral%20B%C3%A1sica%20(S/%20170).%20%C2%BFPueden%20darme%20m%C3%A1s%20informaci%C3%B3n%20y%20ayudarme%20con%20la%20inscripci%C3%B3n?%20Gracias";
-  const quarterlyPremiumHref =
-    "https://wa.me/51960930024?text=%C2%A1Hola,%20FitGym!%20Estoy%20interesado(a)%20en%20la%20Membres%C3%ADa%20Trimestral%20Premium%20(S/%20220).%20%C2%BFPueden%20compartirme%20los%20detalles%20y%20el%20proceso%20de%20inscripci%C3%B3n?%20Gracias";
-
-  const getCtaHref = () => {
-    if (membership.period === "trimestral") {
-      return isPremium ? quarterlyPremiumHref : quarterlyBasicHref;
-    }
-    if (isBaile) return monthlyBaileHref;
-    if (isPremium) return monthlyPremiumHref;
-    return monthlyBasicHref;
-  };
-
-  const getCtaLabel = () => {
-    if (membership.period === "trimestral") {
-      return isPremium ? "Elegir Trimestral Premium" : "Elegir Trimestral Básica";
-    }
-    if (isBaile) return "Elegir Máquinas + Baile";
-    if (isPremium) return "Elegir Premium";
-    return "Elegir Básica";
-  };
-
-  const ctaHref = getCtaHref();
-  const ctaLabel = getCtaLabel();
-
   return (
     <Card
-      className={`relative overflow-hidden transition-all duration-300 hover:shadow-intense transform hover:-translate-y-2 ${
-        membership.popular ? "border-fitgym-orange shadow-glow lg:hover:scale-105" : "border-border hover:border-fitgym-orange/50"
+      className={`relative overflow-hidden transition-all duration-300 hover:shadow-intense transform hover:-translate-y-2 flex flex-col h-full ${
+        membership.popular 
+          ? "border-2 border-yellow-400 shadow-[0_0_20px_rgba(250,204,21,0.3)] lg:scale-105 z-10" 
+          : "border-border hover:border-fitgym-orange/50"
       }`}
     >
       {membership.popular && (
-        <div className="absolute top-0 right-0 bg-gradient-accent text-white px-4 py-2 text-sm font-bold">MÁS POPULAR</div>
+        <div className="absolute top-0 right-0 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-2 text-sm font-black shadow-md flex items-center gap-1">
+          <Crown size={14} className="fill-black" /> MÁS VENDIDO
+        </div>
       )}
 
-      <CardHeader className="text-center pb-4">
+      <CardHeader className="text-center pb-4 pt-8">
         <div
           className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 ${
-            membership.popular ? "bg-fitgym-orange text-white" : "bg-muted text-fitgym-orange"
+            membership.popular ? "bg-yellow-400 text-black" : "bg-muted text-fitgym-orange"
           }`}
         >
           {membership.icon}
         </div>
 
-        <CardTitle className="text-xl sm:text-2xl font-black text-fitgym-dark">{membership.name}</CardTitle>
+        <CardTitle className="text-xl sm:text-2xl font-black text-fitgym-dark uppercase tracking-wide">
+          {membership.name}
+        </CardTitle>
 
-        <div className="mt-4">
-          <span className="text-4xl sm:text-5xl font-black text-fitgym-orange">{membership.price}</span>
-          <span className="text-fitgym-gray ml-2 text-sm sm:text-base">/ {membership.period}</span>
+        <div className="mt-4 flex flex-col items-center justify-center gap-1">
+          <span className="text-gray-400 text-lg line-through font-medium">
+             {membership.originalPrice}
+          </span>
+          <div className="flex items-baseline">
+            <span className="text-4xl sm:text-5xl font-black text-fitgym-orange">
+              {membership.price}
+            </span>
+            <span className="text-fitgym-gray ml-2 text-sm sm:text-base font-medium">
+              / {membership.period}
+            </span>
+          </div>
         </div>
 
-        <p className="text-fitgym-gray mt-2">{membership.description}</p>
+        <p className="text-fitgym-gray mt-2 font-medium">{membership.description}</p>
       </CardHeader>
 
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-4 flex-grow flex flex-col justify-between">
         <div className="space-y-3">
           {membership.features.map((feature, featureIndex) => (
             <div key={featureIndex} className="flex items-center space-x-3">
               <div className="flex-shrink-0">
-                <Check className="w-5 h-5 text-fitgym-orange" />
+                <Check className={`w-5 h-5 ${membership.popular ? 'text-yellow-500' : 'text-fitgym-orange'}`} />
               </div>
-              <span className="text-fitgym-dark">{feature}</span>
+              <span className="text-fitgym-dark text-sm sm:text-base">{feature}</span>
             </div>
           ))}
         </div>
 
-        <div className="pt-6">
-          <Button asChild variant={membership.popular ? "orange" : "outline-orange"} className="w-full text-base sm:text-lg py-3 h-auto font-bold">
-            <a href={ctaHref} target="_blank" rel="noopener noreferrer">
-              {ctaLabel}
+        <div className="pt-6 mt-auto">
+          <Button 
+            asChild 
+            className={`w-full text-base sm:text-lg py-6 h-auto font-bold shadow-lg transition-transform hover:scale-[1.02] ${
+              membership.popular 
+                ? "bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black border-none" 
+                : "bg-fitgym-dark hover:bg-fitgym-dark/90 text-white"
+            }`}
+          >
+            <a 
+              href={`https://wa.me/51960930024?text=${encodeURIComponent(membership.whatsappMessage)}`} 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              ¡LO QUIERO YA! 
             </a>
           </Button>
         </div>
@@ -109,110 +97,76 @@ const PricingCard = ({ membership }: { membership: Membership }) => {
 const Memberships = () => {
   const memberships: Membership[] = [
     {
-      name: "Máquinas + Baile",
-      price: "S/ 120",
-      period: "mensual",
-      description: "Combina fitness y diversión",
+      name: "SOLO BAILE",
+      price: "S/ 80",
+      originalPrice: "Antes S/ 100",
+      period: "mes",
+      description: "¡Diviértete mientras quemas calorías!",
       features: [
-        "Acceso completo a máquinas",
-        "Clases grupales de baile",
-        "Lunes, Miércoles y Viernes 7:30 PM",
-        "Acceso de lunes a domingo",
-        "Casillero incluido",
+        "Full Body intenso",
+        "Clases de Zumba",
+        "Ritmos Latinos",
+        "3 veces por semana",
+        "Ambiente súper divertido"
+      ],
+      popular: false,
+      icon: <Music className="w-8 h-8" />,
+      whatsappMessage: "Hola FitGym, me interesa el plan SOLO BAILE de S/ 80. ¿Tienen vacantes?"
+    },
+    {
+      name: "PACK COMBO",
+      price: "S/ 120",
+      originalPrice: "Antes S/ 170",
+      period: "mes",
+      description: "¡Lo mejor de los dos mundos!",
+      features: [
+        "Pesas ILIMITADAS",
+        "Zona de Cardio",
+        "Clases de Baile incluidas",
+        "Horario libre completo",
+        "Asesoría de rutina básica"
       ],
       popular: true,
-      icon: <Music className="w-6 h-6" />,
+      icon: <Crown className="w-8 h-8" />,
+      whatsappMessage: "Hola FitGym, quiero aprovechar el PACK COMBO de S/ 120 (Pesas + Baile). ¿Cómo me inscribo?"
     },
     {
-      name: "Membresía Básica",
-      price: "S/ 70",
-      period: "mensual",
-      description: "Perfect para comenzar tu transformación",
-      features: [
-        "Acceso a área de pesas libres",
-        "Uso de máquinas cardiovasculares",
-        "Acceso de lunes a domingo",
-        "Asesoría inicial gratuita",
-        "Casillero incluido",
-      ],
-      popular: false,
-      icon: <Star className="w-6 h-6" />,
-    },
-    {
-      name: "Membresía Premium",
+      name: "SOLO GYM",
       price: "S/ 90",
-      period: "mensual",
-      description: "La experiencia completa de entrenamiento",
+      originalPrice: "Antes S/ 120",
+      period: "mes",
+      description: "Enfócate en construir músculo",
       features: [
-        "Todo lo incluido en Básica",
-        "Entrenamiento funcional",
-        "Plan de entrenamiento personalizado",
-        "4 invitaciones mensuales",
+        "Acceso ilimitado a máquinas",
+        "Zona de pesos libres",
+        "Zona de cardio",
+        "Asesoría básica incluida",
+        "Sin restricciones de horario"
       ],
       popular: false,
-      icon: <Crown className="w-6 h-6" />,
-    },
-    // Nuevas membresías trimestrales
-    {
-      name: "Membresía Trimestral Básica",
-      price: "S/ 170",
-      period: "trimestral",
-      description: "Ahorra con el plan trimestral básico",
-      features: [
-        "Acceso a área de pesas libres",
-        "Uso de máquinas cardiovasculares",
-        "Acceso de lunes a domingo",
-        "Asesoría inicial gratuita",
-        "Casillero incluido",
-      ],
-      popular: false,
-      icon: <Star className="w-6 h-6" />,
-    },
-    {
-      name: "Membresía Trimestral Premium",
-      price: "S/ 220",
-      period: "trimestral",
-      description: "La experiencia completa en plan trimestral",
-      features: [
-        "Todo lo incluido en Básica",
-        "Entrenamiento funcional",
-        "Plan de entrenamiento personalizado",
-        "4 invitaciones mensuales",
-        "4 bebidas deportivas mensuales",
-      ],
-      popular: false,
-      icon: <Crown className="w-6 h-6" />,
-    },
+      icon: <Dumbbell className="w-8 h-8" />,
+      whatsappMessage: "Hola FitGym, me interesa el plan SOLO GYM de S/ 90. ¿Qué horarios tienen?"
+    }
   ];
 
   return (
-    <section id="membresias" className="py-20 bg-gradient-to-br from-background to-muted">
+    <section id="membresias" className="py-20 bg-gradient-to-br from-background to-muted/50">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-fitgym-dark mb-6">
-            Elige Tu <span className="text-fitgym-orange">Membresía</span>
+            Precios de <span className="text-fitgym-orange">Locura</span>
           </h2>
           <p className="text-lg sm:text-xl text-fitgym-gray max-w-2xl mx-auto px-4">
-            Planes diseñados para adaptarse a tus objetivos y estilo de vida. 
-            Comienza tu transformación hoy mismo.
+            Elige el plan que mejor se adapte a ti. Sin matrículas escondidas ni contratos complicados.
           </p>
         </div>
 
-        <div className="flex gap-6 sm:gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory scroll-px-4 py-2 max-w-6xl mx-auto lg:grid lg:grid-cols-2 lg:overflow-visible lg:snap-none">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
           {memberships.map((membership) => (
-            <div key={membership.name} className="snap-center shrink-0 w-[280px] sm:w-[340px] md:w-[380px] lg:w-auto">
+            <div key={membership.name} className="h-full">
               <PricingCard membership={membership} />
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <p className="text-fitgym-gray mb-4">¿Tienes dudas sobre qué membresía elegir?</p>
-          <Button asChild variant="outline-orange" size="lg">
-            <a href="https://wa.me/51960930024?text=%C2%A1Hola%20FitGym!%20Quisiera%20hablar%20con%20un%20asesor%20sobre%20las%20membres%C3%ADas%20y%20cu%C3%A1l%20me%20recomiendan%20para%20mi%20objetivo." target="_blank" rel="noopener noreferrer">
-              Habla con un Asesor
-            </a>
-          </Button>
         </div>
       </div>
     </section>

@@ -1,11 +1,12 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Memberships from "@/components/Memberships";
-import Testimonials from "@/components/Testimonials";
+import PromoGroup from "@/components/PromoGroup";
 import Gallery from "@/components/Gallery";
 import Schedule from "@/components/Schedule";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -13,11 +14,12 @@ const Index = () => {
       <Header />
       <Hero />
       <Memberships />
-      <Testimonials />
+      <PromoGroup />
       <Gallery />
       <Schedule />
       <Contact />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
